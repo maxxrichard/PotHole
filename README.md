@@ -1,118 +1,119 @@
-**Responsible Person:** Maxx Richard Rahman
-
-[Project Presentation](https://github.com/InformationServiceSystems/Pothole-App/blob/main/documentation/Pothole_slides.pptx)
 # Pothole-App
 
-[Download Pothole-App](https://github.com/InformationServiceSystems/Pothole-App/blob/main/src/android/app/release/app-release.apk)
+The **Pothole-App** is designed to identify and localize poor road conditions, specifically potholes, using real-time image analysis from mobile streams. The main features include:
 
-[Collected Dataset](https://github.com/InformationServiceSystems/Pothole-App/tree/main/dataset)
+- **Real-time Pothole Detection:** Utilizes YOLOv5 trained on a custom dataset to detect potholes in mobile camera streams.
+- **GPS Integration:** Stores position/GPS coordinates along with detected potholes.
+- **GIS Mapping:** Maps detected potholes onto geological (GIS) maps for administrative purposes.
 
-
-
+[Download Pothole-App](https://github.com/InformationServiceSystems/Pothole-App/blob/main/src/android/app/release/app-release.apk) | [Collected Dataset](https://github.com/InformationServiceSystems/Pothole-App/tree/main/dataset)
 
 <img src="figs/screenshot.jpg" width="400">
 
-## Project Description    
-    1. Identifying and localizing poor road conditions (mainly potholes) based on real-time images from mobile streams.
-    2. Store position/GPS-Coordinates of the mobile to save alongwith detected potholes.
-    3. Mapping of potholes on geological (GIS) maps for administrative units.
-
-To detect potholes from input stream we have used Yolov5 trained with a custom dataset. 
+---
 
 ## Data Preparation
-Before running pothole_detection model generation, please check how to perform data preparation task using [data_preparation](pothole_data_prepration.ipynb).
-Every dataset needs to be converted into yolov5 desired format (coco) before merging. Following is the dataset scheme and respective structure
+Before generating the pothole detection model, follow the data preparation steps outlined in [data_preparation.ipynb](pothole_data_prepration.ipynb). The dataset must be structured in the YOLOv5-compatible format (COCO) before merging:
 
-    data_root_dir
-        test
-            images
-            labels
-        
-        train
-            images
-            labels
-        
-        valid
-            images
-            labels
-    data.yaml
-    log.txt
-Prepared data can be directly accessed via following link [pothole_dataset](https://drive.google.com/file/d/1-lScdLoaW_yzuvQ9nph7raL76wuHz5v_/view?usp=sharing). Organize dataset as above mentioned scheme.
-
-## Model Generation
-For model generation follow following steps
-
-1. clone yolov5 version 5.0 
 ```
-git clone -b v5.0 https://github.com/ultralytics/yolov5.git
+data_root_dir
+    ├── test
+    │   ├── images
+    │   ├── labels
+    ├── train
+    │   ├── images
+    │   ├── labels
+    ├── valid
+    │   ├── images
+    │   ├── labels
+    ├── data.yaml
+    ├── log.txt
 ```
 
-2. copy "models/pothole_yolov5s.yaml" into yolov5/models/
-```
-cp models/pothole_yolov5s.yaml yolov5/models/
-cd yolov5
-```
+The prepared dataset can be accessed via the following link:  
+[Download Pothole Dataset](https://drive.google.com/file/d/1-lScdLoaW_yzuvQ9nph7raL76wuHz5v_/view?usp=sharing).
 
-3. Install all liabraries required for training (better using python/conda env)
-```
-pip3 install -r requirements.txt
-pip3 install wandb
-```
+---
 
-4. Run following command to train yolov5 for pothole (make sure dataset is arranged as above).
-```
-python3 train.py --project pothole_detection --epochs 300 --name yolov5s_pothole_results --data ../../../data_root_dir/data.yaml --cfg models/pothole_yolov5s.yaml --cache
-```
-in case of error, go into dataset folder and remove training and validation cache. For model evaluation feel free to use wandb or tensorboard.
+## Model Training
+To generate the YOLOv5 model for pothole detection, follow these steps:
 
+1. Clone the YOLOv5 repository (v5.0):
+    ```bash
+    git clone -b v5.0 https://github.com/ultralytics/yolov5.git
+    ```
+2. Copy the custom YOLOv5 configuration file:
+    ```bash
+    cp models/pothole_yolov5s.yaml yolov5/models/
+    cd yolov5
+    ```
+3. Install the necessary dependencies (using Python/Conda environment is recommended):
+    ```bash
+    pip3 install -r requirements.txt
+    pip3 install wandb
+    ```
+4. Train the model:
+    ```bash
+    python3 train.py --project pothole_detection --epochs 300 --name yolov5s_pothole_results \
+    --data ../../../data_root_dir/data.yaml --cfg models/pothole_yolov5s.yaml --cache
+    ```
+   **Note:** If you encounter errors, clear the training and validation cache from the dataset folder.
+
+---
 
 ## Model Performance
+The following figures demonstrate the model's performance:
 
-<img src="figs/F1__.png" width="300">
+<img src="figs/F1__.png" width="500">  
+<img src="figs/PR__.png" width="500">  
+<img src="figs/precision.png" width="500">  
+<img src="figs/recall.png" width="500">  
+<img src="figs/train__.png" width="500">  
+<img src="figs/val__.png" width="500">  
 
-<img src="figs/PR__.png" width="300">
+---
 
-<img src="figs/precision.png" width="300">
+## Deployment on Mobile Devices
+To deploy the trained model on a mobile device, follow these steps:
 
-<img src="figs/recall.png" width="300">
+1. Ensure TensorFlow **>=2.4.0** is installed:
+    ```bash
+    pip3 install tensorflow==2.4.0
+    python3 -c "import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
+    ```
+2. Convert the trained model to TensorFlow format:
+    ```bash
+    PYTHONPATH=. python models/tf.py --weights weights/best.pt --cfg models/pothole_yolov5s.yaml --img 320
+    ```
+    This will generate:
+    - `best.pb`
+    - `best_saved_model`
+    - `best-fp16.tflite`
 
-<img src="figs/train__.png" width="300">
+3. Verify the converted model:
+    ```bash
+    python3 detect.py --weights weights/best-fp16.tflite --img 320
+    ```
+    Check the results in the `run/detect/exp` folder.
 
-<img src="figs/val__.png" width="300">
+4. **(Optional)** Deploy an **INT8 quantized model** for better efficiency:
+    ```bash
+    PYTHONPATH=. python models/tf.py --weights weights/best.pt --cfg models/pothole_yolov5s.yaml --img 320 --tfl-int8 --source calib --ncalib 100
+    ```
+    Verify the model:
+    ```bash
+    python3 detect.py --weights weights/best-int8.tflite --img 320 --tfl-int8
+    ```
 
-## Deployment
+5. Copy the TFLite model to the Android app folder:
+    ```bash
+    cp weights/best-fp16.tflite android/app/src/main/assets/
+    ```
+6. Connect an Android device and run the project from **Android Studio**.
 
-To deploy model on mobile device, follow these steps
+---
 
-1. Make sure tensorflow >=2.4.0 is installed, you can check running following command.
-```
-pip3 install tensorflow==2.4.0
-python3 -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
-```
+## License
+This project is licensed under the [MIT License](LICENSE).
 
-2. Place trained yolov5 model into src/weights and run following command, feel free to change resolution
-```
-PYTHONPATH=. python models/tf.py --weights weights/best.pt --cfg models/pothole_yolov5s.yaml --img 320
-```
-this will generate multiple files, best.pb, best_saved_model and best-fp16.tflite.
-
-3. To varify the working of best-fp16.tflite model run following command
-```
-python3 detect.py --weights weights/best-fp16.tflite --img 320
-```
-You can go to run/detect/exp folder and check the results.
-
-4. (optional) To deploy int8 quantized model execute following command (make sure calib folder is present in current directory)
-
-```
-PYTHONPATH=. python models/tf.py --weights weights/best.pt --cfg models/pothole_yolov5s.yaml --img 320 --tfl-int8 --source calib --ncalib 100
-```
-To varify the working of best-int8.tflite model run following command
-```
-python3 detect.py --weights weights/best-int8.tflite --img 320 --tfl-int8
-```
-
-5. Place tflite model into app folder (android/app/src/main/assets).
-
-
-You can connect android device and run project from android studio.
+For more details, check out the [Project Presentation](https://github.com/InformationServiceSystems/Pothole-App/blob/main/documentation/Pothole_slides.pptx).
