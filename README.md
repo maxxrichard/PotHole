@@ -1,4 +1,4 @@
-# Pothole-App
+# PotHole
 
 The **Pothole-App** is designed to identify and localize poor road conditions, specifically potholes, using real-time image analysis from mobile streams. The main features include:
 
