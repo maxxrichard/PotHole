@@ -1,0 +1,86 @@
+ExifTool Version Number         : 10.80
+File Name                       : JPEG_20211220_160332_4808674959958554178.jpg
+Directory                       : .
+File Size                       : 2.8 MB
+File Modification Date/Time     : 2021:12:20 16:03:42+01:00
+File Access Date/Time           : 2021:12:20 17:57:39+01:00
+File Inode Change Date/Time     : 2021:12:20 17:57:38+01:00
+File Permissions                : rwxrwxrwx
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Exif Byte Order                 : Little-endian (Intel, II)
+Make                            : samsung
+Camera Model Name               : SM-G930F
+Orientation                     : Horizontal (normal)
+X Resolution                    : 72
+Y Resolution                    : 72
+Resolution Unit                 : inches
+Software                        : G930FXXS8ETCA
+Modify Date                     : 2021:12:20 16:03:42
+Y Cb Cr Positioning             : Centered
+Exposure Time                   : 1/50
+F Number                        : 1.7
+Exposure Program                : Program AE
+ISO                             : 80
+Exif Version                    : 0220
+Date/Time Original              : 2021:12:20 16:03:42
+Create Date                     : 2021:12:20 16:03:42
+Components Configuration        : Y, Cb, Cr, -
+Shutter Speed Value             : 1/50
+Aperture Value                  : 1.7
+Brightness Value                : 2.51
+Exposure Compensation           : 0
+Max Aperture Value              : 1.7
+Metering Mode                   : Center-weighted average
+Flash                           : No Flash
+Focal Length                    : 4.2 mm
+User Comment                    : 
+Sub Sec Time                    : 0781
+Sub Sec Time Original           : 0781
+Sub Sec Time Digitized          : 0781
+Flashpix Version                : 0100
+Color Space                     : sRGB
+Exif Image Width                : 2160
+Exif Image Height               : 2160
+Interoperability Index          : R98 - DCF basic file (sRGB)
+Interoperability Version        : 0100
+Exposure Mode                   : Auto
+White Balance                   : Auto
+Focal Length In 35mm Format     : 26 mm
+Scene Capture Type              : Standard
+Image Unique ID                 : C12LSII00SM C12LSLC01GM.
+GPS Version ID                  : 2.2.0.0
+GPS Latitude Ref                : North
+GPS Longitude Ref               : East
+GPS Altitude Ref                : Above Sea Level
+GPS Time Stamp                  : 15:03:28
+GPS Date Stamp                  : 2021:12:20
+Compression                     : JPEG (old-style)
+Thumbnail Offset                : 1230
+Thumbnail Length                : 24469
+Image Width                     : 2160
+Image Height                    : 2160
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:2 (2 1)
+Aperture                        : 1.7
+GPS Altitude                    : 292 m Above Sea Level
+GPS Date/Time                   : 2021:12:20 15:03:28Z
+GPS Latitude                    : 49 deg 14' 47.00" N
+GPS Longitude                   : 7 deg 1' 16.00" E
+GPS Position                    : 49 deg 14' 47.00" N, 7 deg 1' 16.00" E
+Image Size                      : 2160x2160
+Megapixels                      : 4.7
+Scale Factor To 35 mm Equivalent: 6.2
+Shutter Speed                   : 1/50
+Create Date                     : 2021:12:20 16:03:42.0781
+Date/Time Original              : 2021:12:20 16:03:42.0781
+Modify Date                     : 2021:12:20 16:03:42.0781
+Thumbnail Image                 : (Binary data 24469 bytes, use -b option to extract)
+Circle Of Confusion             : 0.005 mm
+Field Of View                   : 69.4 deg
+Focal Length                    : 4.2 mm (35 mm equivalent: 26.0 mm)
+Hyperfocal Distance             : 2.14 m
+Light Value                     : 7.5

@@ -1,0 +1,75 @@
+ExifTool Version Number         : 10.80
+File Name                       : JPEG_20211220_131802_3994592844214572556.jpg
+Directory                       : .
+File Size                       : 3.0 MB
+File Modification Date/Time     : 2021:12:20 13:18:05+01:00
+File Access Date/Time           : 2021:12:20 17:57:38+01:00
+File Inode Change Date/Time     : 2021:12:20 17:57:36+01:00
+File Permissions                : rwxrwxrwx
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+Exif Byte Order                 : Little-endian (Intel, II)
+Make                            : samsung
+Camera Model Name               : SM-G930F
+Orientation                     : Rotate 90 CW
+X Resolution                    : 72
+Y Resolution                    : 72
+Resolution Unit                 : inches
+Software                        : G930FXXS8ETCA
+Modify Date                     : 2021:12:20 13:18:05
+Y Cb Cr Positioning             : Centered
+Exposure Time                   : 1/100
+F Number                        : 1.7
+Exposure Program                : Program AE
+ISO                             : 50
+Exif Version                    : 0220
+Date/Time Original              : 2021:12:20 13:18:05
+Create Date                     : 2021:12:20 13:18:05
+Components Configuration        : Y, Cb, Cr, -
+Shutter Speed Value             : 1/100
+Aperture Value                  : 1.7
+Brightness Value                : 4
+Exposure Compensation           : 0
+Max Aperture Value              : 1.7
+Metering Mode                   : Center-weighted average
+Flash                           : No Flash
+Focal Length                    : 4.2 mm
+User Comment                    : 
+Sub Sec Time                    : 0237
+Sub Sec Time Original           : 0237
+Sub Sec Time Digitized          : 0237
+Flashpix Version                : 0100
+Color Space                     : sRGB
+Exif Image Width                : 2160
+Exif Image Height               : 2160
+Interoperability Index          : R98 - DCF basic file (sRGB)
+Interoperability Version        : 0100
+Exposure Mode                   : Auto
+White Balance                   : Auto
+Focal Length In 35mm Format     : 26 mm
+Scene Capture Type              : Standard
+Image Unique ID                 : C12LSII00SM C12LSLC01GM.
+Compression                     : JPEG (old-style)
+Thumbnail Offset                : 1012
+Thumbnail Length                : 24016
+Image Width                     : 2160
+Image Height                    : 2160
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:2 (2 1)
+Aperture                        : 1.7
+Image Size                      : 2160x2160
+Megapixels                      : 4.7
+Scale Factor To 35 mm Equivalent: 6.2
+Shutter Speed                   : 1/100
+Create Date                     : 2021:12:20 13:18:05.0237
+Date/Time Original              : 2021:12:20 13:18:05.0237
+Modify Date                     : 2021:12:20 13:18:05.0237
+Thumbnail Image                 : (Binary data 24016 bytes, use -b option to extract)
+Circle Of Confusion             : 0.005 mm
+Field Of View                   : 69.4 deg
+Focal Length                    : 4.2 mm (35 mm equivalent: 26.0 mm)
+Hyperfocal Distance             : 2.14 m
+Light Value                     : 9.2

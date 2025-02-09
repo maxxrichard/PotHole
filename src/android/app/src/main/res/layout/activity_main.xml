@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/cameraButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:text="Collect Data"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/detectButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toEndOf="@+id/detectButton"
+        app:layout_constraintTop_toTopOf="@+id/detectButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/captureMulti"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Long Shoot"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/cameraButton"
+        app:layout_constraintStart_toEndOf="@+id/detectButton"
+        app:layout_constraintTop_toBottomOf="@+id/detectButton" />
+
+    <Button
+        android:id="@+id/detectButton"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="120dp"
+        android:text="Live View"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="fill_parent"
+        android:layout_height="416dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toTopOf="@+id/detectButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        tools:srcCompat="@drawable/pothole" />
+
+    <org.tensorflow.lite.examples.detection.customview.OverlayView
+        android:id="@+id/tracking_overlay"
+        android:layout_width="416dp"
+        android:layout_height="416dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Pothole App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        tools:layout_editor_absoluteX="-42dp" /> <!--center horizontal gravity-->
+    <!--center horizontal gravity-->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="Developed by:"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/cameraButton"
+        app:layout_constraintStart_toStartOf="@+id/detectButton"
+        app:layout_constraintTop_toBottomOf="@+id/captureMulti" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="96dp"
+        android:layout_height="64dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/tfl2_logo"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toEndOf="@+id/captureMulti"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

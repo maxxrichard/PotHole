@@ -1,0 +1,69 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:installLocation="preferExternal"
+    package="org.tensorflow.lite.examples.detection">
+    <!-- Tell the system this app requires OpenGL ES 3.1. -->
+    <uses-feature android:glEsVersion="0x00030001" android:required="true" />
+
+    <uses-sdk />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--    android:name=".DetectorActivity"-->
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/app_icon"
+        android:label="POTHOLE DETECTION"
+        android:roundIcon="@drawable/tfl2_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.ObjectDetection"
+        android:hardwareAccelerated="true"
+        android:debuggable="true"
+        tools:ignore="HardcodedDebugMode">
+
+
+<!--        <activity
+            android:name=".DetectorActivity"
+            android:label="POTHOLE DETECTION"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>-->
+        <activity android:name=".DetectorActivity"></activity>
+        <service android:name=".TimelapseService" />
+        <activity android:name=".Timelapse"
+            android:launchMode="singleInstance"
+            android:allowTaskReparenting="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="Time Lapse"
+            android:exported="true"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/tfe_od_app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.code.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+</manifest>
